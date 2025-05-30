@@ -17,7 +17,7 @@ class IncrementCounterOnMatch:
         if not hasattr(self, "counter"):
             self.counter = initial_counter
         if input_value == target_value:
-            self.counter += 1
+            self.counter += 10
         return (
             self.counter,
             str(self.counter),
