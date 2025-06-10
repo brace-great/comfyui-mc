@@ -1,3 +1,6 @@
+import random
+
+
 class IncrementCounterOnMatch:
     @classmethod
     def INPUT_TYPES(cls):
@@ -9,7 +12,7 @@ class IncrementCounterOnMatch:
             }
         }
 
-    RETURN_TYPES = ("NUMBER", "STRING")  # Changed from ("INT", "STRING")
+    RETURN_TYPES = ("NUMBER", "STRING")
     RETURN_NAMES = ("counter_int", "counter_str")
     FUNCTION = "execute"
 
@@ -17,11 +20,12 @@ class IncrementCounterOnMatch:
         if not hasattr(self, "counter"):
             self.counter = initial_counter
         if input_value == target_value:
-            self.counter += 10
+            # Set counter to a new random number between 1 and 1 trillion
+            self.counter = random.randint(1, 100_000_000_000_000)
         return (
             self.counter,
             str(self.counter),
-        )  # counter is still an integer, compatible with NUMBER
+        )
 
 
 NODE_CLASS_MAPPINGS = {
