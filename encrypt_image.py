@@ -8,7 +8,7 @@ class IncrementCounterOnMatch:
             "required": {
                 "target_value": ("INT", {"default": 0}),
                 "initial_counter": ("INT", {"default": 0}),
-                "initial_float": ("FLOAT", {"default": 0.25}),
+                "initial_float": ("FLOAT", {"default": 0.1}),
                 "input_value": ("INT",),
             }
         }
@@ -26,7 +26,7 @@ class IncrementCounterOnMatch:
             # Set counter to a new random number between 1 and 1 trillion
             self.counter = random.randint(1, 100_000_000_000_000)
             # Increment float value by 0.15
-            self.float_value += 0.15
+            self.float_value += 0.2
         return (
             self.counter,
             str(self.counter),
